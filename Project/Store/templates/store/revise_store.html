@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>店铺</title>
+	<script src="/static/tiny_mce/tiny_mce.js"></script>
+</head>
+<body>
+    <form action="{% url 'store:revise_store' id %}" method="post" enctype="multipart/form-data">
+    	店铺名称：<input type="text" name="name" value="{{store.name}}"><br>
+    	店铺封面：<input type="file" name="cover"><br>
+		店铺描述：<textarea name="intro" cols="30" rows="10"></textarea><br>
+    	店铺状态：<input type="checkbox" name="status" checked><br>
+    	<input type="submit" value="提交"/><br>{{str}}
+    </form>
+<script>
+    tinyMCE.init({
+    "mode":"textareas",
+    "theme":"advanced",
+    "width":200,
+    "height":300,
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加图片</title>
+</head>
+<body>
+    <form action="{% url 'goodsimage:add_goodsimage' id %}" method="post" enctype="multipart/form-data">
+    	图片路径：<input type="file" name="path"><br>
+		默认展示：<input type="checkbox" name="status" checked><br>
+    	<input type="submit" value="提交"/><br>
+    </form>
+</body>
+</html>

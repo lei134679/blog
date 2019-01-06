@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="/static/js/jquery.js"></script>
+		<title>短信验证码</title>
+	</head>
+	<body>
+
+		<!-- 表单 -->
+		<form action="" method="post">
+			<input type="text" id="tel" name="tel" placeholder="请输入手机号"/>
+			<input type="text" name="code" placeholder="请输入手机验证码">
+			<input type="button" value="获取验证码" id="phone">
+            </form>
+
+			<!-- JS代码 -->
+			<script>
+				//点击发送验证码
+				$('#phone').click(
+					function () {
+						$.get('/user/send_message', {tel: $('#tel').val()}, function (msg) {
+							if (msg.msg == '提交成功') {
+								RemainTime();
+							}
+						});
+					})
+
+				//按钮倒计时
+				var iTime = 60;
+				sTime = '';
+
+				function RemainTime() {
+					if (iTime == 0) {
+						document.getElementById('phone').disabled = false;
+						sTime = "获取验证码";
+						iTime = 60;
+						document.getElementById('phone').value = sTime;
+						return;
+					} else {
+						document.getElementById('phone').disabled = true;
+						sTime = "重新发送(" + iTime + ")";
+						iTime--;
+					}
+					setTimeout(function () {
+						RemainTime()
+					}, 1000);
+					document.getElementById('phone').value = sTime;
+				}
+
+				  function code_p() {
+					img = document.getElementById("code_p");
+					img.src = "/user/code_p/?id=" + new Date().getTime()
+				}
+			</script>
+	</body>
+</html>

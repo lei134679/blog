@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改资料</title>
+</head>
+<body>
+    	<form action="{% url 'user:data_user' %}" method="post" enctype="multipart/form-data">
+		用户昵称    <input type="text" name="nickname">{{nickname}}<br>
+		用户年龄    <input type="text" name="age">{{age}}<br>
+		用户性别    <input type="text" name="gender"><br>
+		联系方式    <input type="text" name="phone"><br>
+		电子邮箱    <input type="email" name="email"><br>
+		用户头像    <input type="file" name="header"><br>
+		<input type="submit" value="修改"/>{{str}}<br>
+	</form>
+</body>
+</html>

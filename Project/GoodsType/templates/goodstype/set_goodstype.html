@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>设置类型</title>
+	<script src="/static/tiny_mce/tiny_mce.js"></script>
+</head>
+<body>
+	<form action="{% url 'goodstype:set_goodstype' %}" method="post" enctype="multipart/form-data">
+		类型名称：<input type="text" name="gt_name"><br>
+		图片：<input type="file" name="cover"><br>
+		店铺描述：<textarea name="gt_desc" cols="30" rows="10"></textarea><br>
+		<input type="submit" value="提交"/><br>
+	</form>
+	
+	<script>
+    tinyMCE.init({
+    "mode":"textareas",
+    "theme":"advanced",
+    "width":200,
+    "height":300,
+	})
+	</script>
+</body>
+</html>

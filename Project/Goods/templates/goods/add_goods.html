@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加商品</title>
+	<script src="/static/tiny_mce/tiny_mce.js"></script>
+</head>
+<body>
+	<form action="{% url 'goods:add_goods' %}" method="post" enctype="multipart/form-data">
+		商品名称：<input type="text" name="name"><br>
+		商品单价：<input type="text" name="price" onkeyup="this.value=this.value.toString().match(/^\d+(?:\.\d{0,2})?/)"><br>
+		商品库存：<input type="text" name="stock" onkeyup="this.value=this.value.toString().match(/^\d+(?:\d{0,0})?/)"><br>
+		销售数量：<input type="text" name="count" onkeyup="this.value=this.value.toString().match(/^\d+(?:\d{0,0})?/)"><br>
+		所属类型：<select name="goodstype">
+				{% for i in GoodsType %}
+					<option>{{i.gt_name}}</option>
+				{% endfor %}
+				</select><br>
+		所属类型：<select name="store">
+				{% for i in store %}
+					<option>{{i.name}}</option>
+				{% endfor %}
+				</select><br>
+		商品介绍：<textarea name="desc" cols="30" rows="10"></textarea><br>
+		
+		<input type="submit" value="提交"/>
+	</form>
+	<script>
+	tinyMCE.init({
+	"mode":"textareas",
+	"theme":"advanced",
+	"width":200,
+	"height":300,
+	})
+	</script>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+		{% load static %}
+    <link rel="stylesheet" type="text/css" href="/static/res/static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/static/res/layui/css/layui.css">
+		<link rel="shortcut icon" href="{%static 'favicon.ico'  %}" />
+    <script type="text/javascript" src="/static/res/layui/layui.js"></script>
+    <script src="/static/js/jquery_1.9.js"></script>
+    <script src="/static/js/main.js"></script>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+</head>
+<body id="list-cont">
+<div class="site-nav-bg">
+    <div class="site-nav w1200">
+        <p class="sn-back-home">
+            <i class="layui-icon layui-icon-home"></i>
+            <a href="/">首页</a>
+        </p>
+        <div class="sn-quick-menu">
+            <div class="login">欢迎 <span style="font-size:20px">{{request.user.users.mickname}}</span> 用户登录</div>
+            <div class="login"><a href="/store/list_store">我的店铺</a></div>
+            <div class="login"><a href="/address/list_address">收货地址</a></div>
+            <div class="login"><a href="/user/data_data">个人资料</a></div>
+            <div class="login"><a href="/user/login_user/">登录</a></div>
+            <div class="login"><a href="/user/regist_user/">注册</a></div>
+            <div class="login"><a href="/user/logout_user/">登出</a></div>
+            <div class="sp-cart"><a href="/shopcart/shopcart">购物车</a><span>2</span></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="header">
+    <div class="headerLayout w1200">
+        <div class="headerCon">
+            <h1 class="mallLogo">
+                <a href="#" title="淘宝网">
+                    <img src="/static/favicon.ico">
+                </a>
+            </h1>
+            <div class="mallSearch">
+                <form action="" class="layui-form" novalidate>
+                    <input type="text" name="title" required lay-verify="required" autocomplete="off"
+                           class="layui-input" placeholder="请输入需要的商品">
+                    <button class="layui-btn" lay-submit lay-filter="formDemo">
+                        <i class="layui-icon layui-icon-search"></i>
+                    </button>
+                    <input type="hidden" name="" value="">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="content">
+    <div class="main-nav">
+        <div class="inner-cont0">
+            <div class="inner-cont1 w1200">
+                <div class="inner-cont2">
+                    <a href="/" class="active">所有商品</a>
+                    <a href="/">今日团购</a>
+                    <a href="/">商品资讯</a>
+                    <a href="/user/about/">关于我们</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="category-con">
+        <div class="category-inner-con w1200">
+            <div class="category-type">
+                <h3>全部分类</h3>
+            </div>
+            <div class="category-tab-content">
+                <div class="nav-con">
+                    <ul class="normal-nav layui-clear">
+                        {% for i in all %}
+                        <li class="nav-item hide">
+													
+                            <div class="title" style="height: 50px;">{{ i.gt_name}}</div>
+                            <i class="layui-icon layui-icon-right"></i>
+                        </li>
+                        
+                        <ul>
+                            {% for j in i.goodstype_set.all %}
+                            <li class="show" style="display: none;">{{j.gt_name}}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endfor %}
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="category-banner">
+            <div class="w1200">
+                <img src="/static/res/static/img/banner1.jpg" width="100%">
+            </div>
+        </div>
+    </div>
+    <div class="floors">
+        <div class="sk">
+            <div class="sk_inner w1200">
+                <div class="sk_hd">
+                    <a href="javascript:;">
+                        <img src="/static/res/static/img/s_img1.jpg">
+                    </a>
+                </div>
+                <div class="sk_bd">
+                    <div class="layui-carousel" id="test1">
+                        <div carousel-item>
+                            <div class="item-box">
+                                <div class="item">
+                                    <a href="javascript:;"><img src="/static/images/GoodsType/1.png"></a>
+                                    <div class="title">宝宝五彩袜棉质舒服</div>
+                                    <div class="price">
+                                        <span>￥49.00</span>
+                                        <del>￥99.00</del>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <a href="javascript:;"><img src="/static/res/static/img/s_img3.jpg"></a>
+                                    <div class="title">宝宝五彩袜棉质舒服</div>
+                                    <div class="price">
+                                        <span>￥49.00</span>
+                                        <del>￥99.00</del>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <a href="javascript:;"><img src="/static/res/static/img/s_img3.jpg"></a>
+                                    <div class="title">宝宝五彩袜棉质舒服</div>
+                                    <div class="price">
+                                        <span>￥49.00</span>
+                                        <del>￥99.00</del>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <a href="javascript:;"><img src="/static/res/static/img/s_img3.jpg"></a>
+                                    <div class="title">宝宝五彩袜棉质舒服</div>
+                                    <div class="price">
+                                        <span>￥49.00</span>
+                                        <del>￥99.00</del>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-box">
+                                <div class="item">
+                                    <a href="javascript:;"><img src="/static/res/static/img/s_img2.jpg"></a>
+                                    <div class="title">宝宝五彩袜棉质舒服</div>
+                                    <div class="price">
+                                        <span>￥49.00</span>
+                                        <del>￥99.00</del>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <a href="javascript:;"><img src="/static/res/static/img/s_img3.jpg"></a>
+                                    <div class="title">宝宝五彩袜棉质舒服</div>
+                                    <div class="price">
+                                        <span>￥49.00</span>
+                                        <del>￥99.00</del>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <a href="javascript:;"><img src="/static/res/static/img/s_img4.jpg"></a>
+                                    <div class="title">宝宝五彩袜棉质舒服</div>
+                                    <div class="price">
+                                        <span>￥49.00</span>
+                                        <del>￥99.00</del>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <a href="javascript:;"><img src="/static/res/static/img/s_img5.jpg"></a>
+                                    <div class="title">宝宝五彩袜棉质舒服</div>
+                                    <div class="price">
+                                        <span>￥49.00</span>
+                                        <del>￥99.00</del>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product-list-box" id="product-list-box">
+        <div class="product-list-cont w1200">
+            <h4>好货连连</h4>
+            <div class="product-item-box layui-clear">
+                {% for i in goods %}
+                <div class="list-item">
+                    <a href="javascript:;"><img src="/{{ img }}"></a>
+                    <p style="text-align: center;">{{i.name}}</p>
+                    <span>￥{{i.price}}
+                    </span><br>
+
+										<span class="ajax" goods_id={{i.id}}>加入购物车</span>
+                
+								</div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="ng-promise-box">
+        <div class="ng-promise w1200">
+            <p class="text">
+                <a class="icon1" href="javascript:;">7天无理由退换货</a>
+                <a class="icon2" href="javascript:;">满99元全场免邮</a>
+                <a class="icon3" style="margin-right: 0" href="javascript:;">100%品质保证</a>
+            </p>
+        </div>
+    </div>
+    <div class="mod_help w1200">
+        <p>
+            <a href="javascript:;">关于我们</a>
+            <span>|</span>
+            <a href="javascript:;">帮助中心</a>
+            <span>|</span>
+            <a href="javascript:;">售后服务</a>
+            <span>|</span>
+            <a href="javascript:;">商品资讯</a>
+            <span>|</span>
+            <a href="javascript:;">关于货源</a>
+        </p>
+        <p class="coty">淘宝网版权所有 &copy; 2012-2020 More Templates <a href="http://www.cssmoban.com/" target="_blank"
+                                                                   title="模板之家">模板之家</a> - Collect from <a
+                href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+    </div>
+</div>
+<script type="text/javascript">
+
+layui.config({
+    base: '/static/res/static/js/util/' //你存放新模块的目录，注意，不是layui的模块目录
+  }).use(['mm','carousel'],function(){
+      var carousel = layui.carousel,
+     mm = layui.mm;
+     var option = {
+        elem: '#test1'
+        ,width: '100%' //设置容器宽度
+        ,arrow: 'always'
+        ,height:'298'
+        ,indicator:'none'
+      }
+      carousel.render(option);
+      // 模版引擎导入
+     // var ins = carousel.render(option);
+     // var html = demo.innerHTML;
+     // var listCont = document.getElementById('list-cont');
+     // // console.log(layui.router("#/about.html"))
+     //  mm.request({
+     //    url: '../json/index.json',
+     //    success : function(res){
+     //      console.log(res)
+     //      listCont.innerHTML = mm.renderHtml(html,res)
+     //      ins.reload(option);
+     //    },
+     //    error: function(res){
+     //      console.log(res);
+     //    }
+     //  })
+
+
+});
+
+</script>
+<script type="text/javascript">
+	$('.hide').click(function(){
+		$('.show').slideToggle();
+	})
+</script>
+<script type="text/javascript">
+		$('.ajax').click(function(){
+			var id = $(this).attr('goods_id')
+			$.ajax({
+				url: "/shopcart/"+ id +"/add_shopcart/",
+				type: "get",
+				success: function(data){
+					alert('添加成功')
+				}
+			})
+		})
+</script>
+</body>
+</html>

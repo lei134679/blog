@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css"/>
+</head>
+<body>
+<button onclick="ajax()">ajax</button>
+<script>
+    function ajax(){
+		// 获取对象
+		var xhr = new XMLHttpRequest()
+		// 打开open
+		xhr.open('GET', '/address/ajax/?id=10')
+		// 监听事件
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState==4 && xhr.status == 200 ){
+				console.info(xhr.responseText)
+			}
+		}
+		// xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		// 发送请求
+		xhr.send()
+    }
+	
+	
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Dropdown
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+</div>
+</script>
+</body>
+</html>

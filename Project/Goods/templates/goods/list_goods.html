@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    {% for i in list %}
+
+    商品名称：{{i.name}}<br>
+    商品单价：{{i.price}}<br>
+    商品库存：{{i.stock}}<br>
+    销售数量：{{i.count}}<br>
+    上架时间: {{i.add_time}}<br>
+    商品介绍：{{i.desc}}<br>
+    商品类型：{{i.goods_detail_type_id}}<br>
+    所属店铺：{{i.goods_store_id}}<br>
+    商品类型：{{i.goods_detail_type.gt_name}}<br>
+    所属店铺：{{i.goods_store.name}}<br>
+    商品图片：
+    {% for j in img %}
+        {% if i.id == j.goods_id %}
+            <img src="/{{j.path}}";height="30px">
+            <a href="/goodsimage/del_goodsimage/{{j.id}}">删除图片</a>
+        {% endif %}
+    {% endfor %}
+    <br>
+    <a href="/goods/revise_goods/{{i.id}}">修改</a>
+    <a href="/goods/del_goods/{{i.id}}">删除</a>
+    <a href="/goodsimage/add_goodsimage/{{i.id}}">添加图片</a>
+    <a href="/shopcart/add_shopcart/{{i.id}}">加入购物车</a>{{str}}
+    <!--<select>-->
+		<!--{% for j in img %}-->
+			<!--{% if i.id == j.goods_id %}-->
+				<!--<option value="">{{j.id}}</option>-->
+				<!---->
+			<!--{% endif %}-->
+		<!--{% endfor %}-->
+    	<!---->
+    <!--</select>-->
+
+    <br>
+	
+    ******************************************<br>
+    {% endfor %}
+</body>
+</html>

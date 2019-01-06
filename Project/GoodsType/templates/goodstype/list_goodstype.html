@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>列出所有类型</title>
+</head>
+<body>
+	{% for i in list %}
+	{{i.gt_name}}<br>
+	<img src="/{{i.cover}}"; width="300px"; height="300px"><br>
+	{{i.gt_desc}}<br>
+    <a href="/goodstype/revise_goodstype/{{i.id}}">修改类型</a>
+    <a href="/goodstype/del_goodstype/{{i.id}}">删除类型</a>
+	{% endfor %}
+</body>
+</html>

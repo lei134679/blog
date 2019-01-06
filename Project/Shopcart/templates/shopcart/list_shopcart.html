@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>所有商品</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>购买商品</td>
+            <td>购买数量</td>
+            <td>添加时间</td>
+            <td>小计金额</td>
+        </tr>
+        {% for list in list %}
+            <tr>
+            <td>{{list.goods.name}}</td>
+            <td>{{list.count}}</td>
+            <td>{{list.add_time}}</td>
+            <td>{{list.subtotal}}</td>
+            <td><a href="/shopcart/del_shopcart/{{list.id}}">移除商品</a></td>
+
+            </tr>
+        {% endfor %}
+    </table>
+<button><a href="/order/create_shopcart_order/">下单</a></button>
+</body>
+</html>
