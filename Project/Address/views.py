@@ -95,6 +95,10 @@ def del_address(request, id):
     return redirect(reverse('address:list_address'))
 
 
+def AAA():
+    pass
+
+
 
 
 
